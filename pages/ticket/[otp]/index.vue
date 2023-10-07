@@ -27,10 +27,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <Dialog :use-close-button="false" v-if="result" title="View Ticket" @on-close="result = undefined">
+  <Dialog v-if="result" :use-close-button="false" title="View Ticket" @on-close="result = undefined">
     <p>{{ result }}</p>
   </Dialog>
-  <main class="ticket container" v-if="ticket">
+  <main v-if="ticket" class="ticket container">
     <TicketHero />
     <TicketInfo :ticket="ticket" />
     <TicketQr />
