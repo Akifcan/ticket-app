@@ -35,12 +35,12 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <Dialog v-if="result ? true : false" title="Create a ticket" @onClose="result = undefined">
+  <Dialog v-if="result ? true : false" title="Create a ticket" @on-close="result = undefined">
     <p>{{ result }}</p>
   </Dialog>
   <form ref="formRef" class="container flex column" style="--gap: 1rem" @submit.prevent="handleSubmit">
     <FormGroup id="customer-name" title="Customer Name">
-      <input name="customerName" id="customer-name" required />
+      <input id="customer-name" name="customerName" required />
     </FormGroup>
     <FormGroup id="start-date" title="Start Date">
       <input id="start-date" name="startDate" type="date" required />
