@@ -1,13 +1,16 @@
 <script setup lang="ts">
 interface Props {
   title: string
+  useCloseButton?: boolean
 }
 
 interface Emits {
   (e: 'onClose'): void
 }
 
-defineProps<Props>()
+withDefaults(defineProps<Props>(), {
+  useCloseButton: true
+})
 defineEmits<Emits>()
 </script>
 
@@ -15,6 +18,6 @@ defineEmits<Emits>()
   <dialog open>
     <b>{{ title }}</b>
     <slot />
-    <button @click="$emit('onClose')">Ok</button>
+    <button v-if="useCloseButton" @click="$emit('onClose')">Ok</button>
   </dialog>
 </template>
