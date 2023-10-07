@@ -17,3 +17,5 @@ export interface TicketProps {
   start_at: string
   time: string
 }
+
+export type CheckTicket = Pick<TicketProps, 'otp_code' | 'end_at' | 'is_active' | 'name'>

@@ -14,3 +14,11 @@
 .text-capitalize {
     text-transform: capitalize;
 }
+
+.full-width {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}

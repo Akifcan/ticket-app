@@ -1,5 +1,21 @@
 <script setup lang="ts">
-import Qr from '~/assets/images/qr.png'
+import { toCanvas } from 'qrcode'
+const canvas = ref<HTMLCanvasElement>()
+
+interface Props {
+  otpCode: string
+}
+
+const props = defineProps<Props>()
+
+onMounted(() => {
+  toCanvas(canvas.value, props.otpCode, { width: 200 }, function (error: any) {
+    // eslint-disable-next-line no-console
+    if (error) console.error(error)
+    // eslint-disable-next-line no-console
+    console.log('success!')
+  })
+})
 </script>
 
 <template>
@@ -8,7 +24,7 @@ import Qr from '~/assets/images/qr.png'
     <TicketIconsCircle style="top: -17px; right: -15px" />
     <TicketIconsCircle style="bottom: -10px; left: -15px" />
     <TicketIconsCircle style="bottom: -11px; right: -15px" />
-    <img :src="Qr" alt="qr" />
+    <canvas ref="canvas"></canvas>
   </section>
 </template>
 
